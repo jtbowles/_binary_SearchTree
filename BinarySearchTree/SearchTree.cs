@@ -8,39 +8,53 @@ namespace BinarySearchTree
 {
     public class SearchTree
     {
-        public Node rootNode;
-        
+        public Node startNode;
+        public Node currentNode;
 
-        public void Insert(int value)
+        public void Insert(Node node)
         {
-            Node node = new Node(value);
-
-            if(rootNode == null)
+            if(startNode == null)
             {
-                rootNode = node;
+                startNode = node;
                 return;
             }
-            else
+
+            Node currentNode = startNode;
+
+            while (currentNode != null)
             {
-                Node temporaryNode = rootNode;
-                bool valueIsGreater = CompareNodeValues(value);
-                while (valueIsGreater)
+                if(node.data > currentNode.data)
                 {
-                    if(temporaryNode.rightChild != null)
+                    if(currentNode.rightChild != null)
                     {
-                        temporaryNode = temporaryNode.rightChild;
+                        currentNode = currentNode.rightChild;
+                        //Insert(currentNode.rightChild);
                     }
-                    temporaryNode.rightChild = node;
+                    else
+                    {
+                        currentNode.rightChild = node;
+                        break;
+                    }
                 }
-                if(!valueIsGreater)
+                else if (node.data < currentNode.data)
                 {
-                    if(temporaryNode.leftChild != null)
+                    if(currentNode.leftChild != null)
                     {
-                        temporaryNode = temporaryNode.leftChild;
+                        Insert(currentNode.leftChild);
                     }
-                    temporaryNode.leftChild = node;
+                    else
+                    {
+                        currentNode.leftChild = node;
+                        break;
+                    }
                 }
-            }
+            }         
+        }
+
+        public void AddNode(int value)
+        {
+            Node node = new Node(value);
+            Insert(node);
         }
 
         public void Search(int value)
@@ -48,11 +62,23 @@ namespace BinarySearchTree
 
         }
 
-        private bool CompareNodeValues(int value)
+        private void CompareTwoNodes(Node currentNode, Node node)
+        {
+            if(node.data > currentNode.data)
+            {
+                currentNode.rightChild = node;
+            }
+            else
+            {
+                currentNode.leftChild = node;
+            }
+        }
+
+        private bool CompareNodeValues(int value, Node node)
         {
             bool greaterValue = false;
 
-            if(value > rootNode.data)
+            if(value > node.data)
             {
                 greaterValue = true;
             }
@@ -62,5 +88,7 @@ namespace BinarySearchTree
             }
             return greaterValue;
         }
+
+
     }
 }

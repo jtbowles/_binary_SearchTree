@@ -1,0 +1,7 @@
+C:\Users\jbowl\Desktop\All Projects [dCC]\_binary_SearchTree\BinarySearchTree\BinarySearchTree\bin\Debug\BinarySearchTree.exe.config
+C:\Users\jbowl\Desktop\All Projects [dCC]\_binary_SearchTree\BinarySearchTree\BinarySearchTree\bin\Debug\BinarySearchTree.exe
+C:\Users\jbowl\Desktop\All Projects [dCC]\_binary_SearchTree\BinarySearchTree\BinarySearchTree\bin\Debug\BinarySearchTree.pdb
+C:\Users\jbowl\Desktop\All Projects [dCC]\_binary_SearchTree\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.csprojAssemblyReference.cache
+C:\Users\jbowl\Desktop\All Projects [dCC]\_binary_SearchTree\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.csproj.CoreCompileInputs.cache
+C:\Users\jbowl\Desktop\All Projects [dCC]\_binary_SearchTree\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.exe
+C:\Users\jbowl\Desktop\All Projects [dCC]\_binary_SearchTree\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.pdb
