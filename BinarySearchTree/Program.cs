@@ -11,11 +11,11 @@ namespace BinarySearchTree
         static void Main(string[] args)
         {
             SearchTree binary = new SearchTree();
-            binary.AddNode(50);
-            binary.AddNode(63);
-            binary.AddNode(47);
-            binary.AddNode(52);
-            binary.AddNode(49);
+            binary.Add(50);
+            binary.Add(63);
+            binary.Add(47);
+            binary.Add(52);
+            binary.Add(49);
         }
     }
 }

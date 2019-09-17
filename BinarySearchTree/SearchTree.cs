@@ -11,83 +11,129 @@ namespace BinarySearchTree
         public Node startNode;
         public Node currentNode;
 
-        public void Insert(Node node)
+        public SearchTree()
         {
-            if(startNode == null)
+            startNode = null;
+            currentNode = null;
+        }
+
+        public void Add(int data)
+        {
+            Node temporaryNode = new Node(data);
+
+            if (startNode == null)
             {
-                startNode = node;
+                startNode = temporaryNode;
+                this.currentNode = startNode;
                 return;
             }
 
-            Node currentNode = startNode;
-
-            while (currentNode != null)
+            if(data > currentNode.data)
             {
-                if(node.data > currentNode.data)
+                if(currentNode.rightChild == null)
                 {
-                    if(currentNode.rightChild != null)
-                    {
-                        currentNode = currentNode.rightChild;
-                        //Insert(currentNode.rightChild);
-                    }
-                    else
-                    {
-                        currentNode.rightChild = node;
-                        break;
-                    }
+                    currentNode.rightChild = temporaryNode;
                 }
-                else if (node.data < currentNode.data)
+                else
                 {
-                    if(currentNode.leftChild != null)
-                    {
-                        Insert(currentNode.leftChild);
-                    }
-                    else
-                    {
-                        currentNode.leftChild = node;
-                        break;
-                    }
+                    currentNode = currentNode.rightChild;
+                    Add(data);
                 }
-            }         
-        }
-
-        public void AddNode(int value)
-        {
-            Node node = new Node(value);
-            Insert(node);
-        }
-
-        public void Search(int value)
-        {
-
-        }
-
-        private void CompareTwoNodes(Node currentNode, Node node)
-        {
-            if(node.data > currentNode.data)
-            {
-                currentNode.rightChild = node;
             }
-            else
+            else if(data <= currentNode.data)
             {
-                currentNode.leftChild = node;
+                if(currentNode.leftChild == null)
+                {
+                    currentNode.leftChild = temporaryNode;
+                }
+                else
+                {
+                    currentNode = currentNode.leftChild;
+                    Add(data);
+                }
             }
+            currentNode = startNode;
         }
 
-        private bool CompareNodeValues(int value, Node node)
-        {
-            bool greaterValue = false;
+        //public void Insert(Node node)
+        //{
+        //    if(startNode == null)
+        //    {
+        //        startNode = node;
+        //        this.currentNode = startNode;
+        //        return;
+        //    }
 
-            if(value > node.data)
-            {
-                greaterValue = true;
-            }
-            else
-            {
-                greaterValue = false;
-            }
-            return greaterValue;
-        }
+        //    Node currentNode = startNode;
+        //    Node nodeToAdd = node;
+
+        //    while (currentNode != null)
+        //    {
+        //        if(nodeToAdd.data > currentNode.data)
+        //        {
+        //            if(currentNode.rightChild != null)
+        //            {
+        //                currentNode = currentNode.rightChild;
+        //                //Insert(currentNode.rightChild);
+        //            }
+        //            else
+        //            {
+        //                currentNode.rightChild = node;
+        //                break;
+        //            }
+        //        }
+        //        else if (nodeToAdd.data < currentNode.data)
+        //        {
+        //            if(currentNode.leftChild == null)
+        //            {
+        //                currentNode.leftChild = nodeToAdd;
+        //                break;
+        //            }
+        //            else
+        //            {
+        //                Insert(currentNode.leftChild);
+        //            }
+        //        }
+        //    }         
+        //}
+
+        //public void AddNode(int value)
+        //{
+        //    Node node = new Node(value);
+        //    Insert(node);
+        //}
+
+        //public void Search(int value)
+        //{
+
+        //}
+
+        //private void CompareTwoNodes(Node currentNode, Node node)
+        //{
+        //    if(node.data > currentNode.data)
+        //    {
+        //        currentNode.rightChild = node;
+        //    }
+        //    else
+        //    {
+        //        currentNode.leftChild = node;
+        //    }
+        //}
+
+        //private bool CompareNodeValues(int value, Node node)
+        //{
+        //    bool greaterValue = false;
+
+        //    if(value > node.data)
+        //    {
+        //        greaterValue = true;
+        //    }
+        //    else
+        //    {
+        //        greaterValue = false;
+        //    }
+        //    return greaterValue;
+        //}
 
 
     }
