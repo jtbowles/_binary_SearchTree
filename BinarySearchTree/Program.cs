@@ -24,31 +24,50 @@ namespace BinarySearchTree
             binary.Add(94);
             binary.Add(39);
 
+            SearchTreeMenu(binary);
+        }
+
+        public static void SearchTreeMenu(SearchTree tree)
+        {
+            bool isOn = true;
+
+            while (isOn)
+            {
+                string userInput = DisplayPrompt();
+
+                switch (userInput)
+                {
+                    case "add":
+                        DisplayAdd();
+                        int numberToAdd = Convert.ToInt32(Console.ReadLine());
+                        Add(numberToAdd, tree);
+                        break;
+
+                    case "search":
+                        DisplaySearch();
+                        int numberToSearch = Convert.ToInt32(Console.ReadLine());
+                        Search(numberToSearch, tree);
+                        break;
+
+                    case "exit":
+                        isOn = false;
+                        break;
+
+                    default:
+                        SearchTreeMenu(tree);
+                        break;
+                }
+            }
+        }
+
+        public static string DisplayPrompt()
+        {
+            Console.Clear();
             Console.WriteLine("   Would you like to add or search for a number in the tree?");
             Console.WriteLine("                 enter [add] or [search]");
             string userInput = Console.ReadLine();
-
-            switch (userInput)
-            {
-                case "add":
-                    DisplayAdd();
-                    int numberToAdd = Convert.ToInt32(Console.ReadLine());
-                    Add(numberToAdd, binary);
-                    break;
-
-                case "search":
-                    DisplaySearch();
-                    int numberToSearch = Convert.ToInt32(Console.ReadLine());
-                    Search(numberToSearch, binary);
-                    break;
-
-                default:
-                    break;
-            }
-
-
+            return userInput;
         }
-
         public static void Add(int numToAdd, SearchTree tree)
         {
             tree.Add(numToAdd);
