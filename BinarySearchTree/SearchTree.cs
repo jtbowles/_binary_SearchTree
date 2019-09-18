@@ -66,9 +66,8 @@ namespace BinarySearchTree
                 else
                 {
                     currentNode = currentNode.rightChild;
-                    Search(data);
+                    return Search(data);
                 }
-                //search the right side
             }
             else if(data <= currentNode.data)
             {
@@ -79,9 +78,8 @@ namespace BinarySearchTree
                 else
                 {
                     currentNode = currentNode.leftChild;
-                    Search(data);
+                    return Search(data);
                 }
-                //search the left side
             }
             else
             {
