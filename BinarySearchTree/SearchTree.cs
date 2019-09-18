@@ -57,34 +57,23 @@ namespace BinarySearchTree
 
         public bool Search(int data)
         {
-            if(data > currentNode.data)
+            Node foundNode = startNode;
+            while (foundNode != null)
             {
-                if(currentNode.rightChild == null)
+                if (data < foundNode.data)
                 {
-                    return false;
+                    foundNode = foundNode.leftChild;
                 }
-                else
+                else if (data > foundNode.data)
                 {
-                    currentNode = currentNode.rightChild;
-                    return Search(data);
+                    foundNode = foundNode.rightChild;
+                }
+                else if (data == foundNode.data)
+                {
+                    return true;
                 }
             }
-            else if(data <= currentNode.data)
-            {
-                if(currentNode.leftChild == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    currentNode = currentNode.leftChild;
-                    return Search(data);
-                }
-            }
-            else
-            {
-                return true;
-            }
+            return false;
         }
 
     }
